@@ -14,7 +14,6 @@ def loadThetas(path="thetas.json"):
 		print(f"Error: {e}.\n\nWe'll use θ0 = θ1 = 0.0")
 		return 0.0, 0.0
 
-
 def getMileage():
 	while True:
 		mileage_raw = input("Enter mileage in Km: ").strip()
