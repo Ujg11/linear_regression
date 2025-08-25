@@ -5,7 +5,7 @@ import sys
 def loadThetas(path="thetas.json"):
 	p = pathlib.Path(path)
 	if not p.exists():
-		print("No training yet, we'll use θ0 = θ1 = 0.0")
+		print("No training yet, execute 'train.py' first. Now we'll use θ0 = θ1 = 0.0.")
 		return 0.0, 0.0
 	try:
 		data = json.loads(p.read_text())
@@ -38,4 +38,4 @@ if __name__ == '__main__':
 	mileage = getMileage()
 	theta0, theta1 = loadThetas()
 	price = estimatePrice(mileage, theta0, theta1)
-	print(f"The estimated price is {price}€")
+	print(f"The estimated price is {price:.0f}€")

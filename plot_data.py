@@ -5,9 +5,9 @@ import pathlib
 from train import loadData
 from prediction import loadThetas
 
-def make_plot(X, Y, theta0=None, theta1=None, out="price_vs_km.png", show=False):
+def make_plot(X, Y, theta0=None, theta1=None, out="price_vs_km.png"):
     plt.figure()
-    plt.scatter(X, Y, s=18, alpha=0.85, label="data")
+    plt.scatter(X, Y, s=18, alpha=0.85, label="data") # Dispersion graphic
 
     if theta0 is not None and theta1 is not None:
         x0, x1 = min(X), max(X)
@@ -22,13 +22,9 @@ def make_plot(X, Y, theta0=None, theta1=None, out="price_vs_km.png", show=False)
     plt.legend(loc="best")
     plt.tight_layout()
 
-    if show:
-        # If you set Agg backend above, this won't open a window—remove the Agg line for GUI use.
-        plt.show()
-    else:
-        pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
-        plt.savefig(out, dpi=150)
-        print(f"✔ Saved figure to {out}")
+    pathlib.Path(out).parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(out, dpi=150)
+    print(f"Saved figure to {out}")
 
 if __name__ == "__main__":
     X, Y = loadData()
